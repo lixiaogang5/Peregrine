@@ -16,8 +16,8 @@ CurrentMemoryContext、ErrorContext、PostmasterContext、CacheMemoryContext、M
 ![内存上下文示意图](https://user-images.githubusercontent.com/63132178/172780970-ead483b7-b700-476f-9d01-e1a876a797f8.png)
 
 函数MemoryContextInit的实现如下：
-`void
-MemoryContextInit(void)
+```c
+void MemoryContextInit(void)
 {
 	AssertState(TopMemoryContext == NULL);
 
@@ -62,4 +62,5 @@ MemoryContextInit(void)
 										 8 * 1024,
 										 8 * 1024);
 	MemoryContextAllowInCriticalSection(ErrorContext, true);
-}`
+}
+```
