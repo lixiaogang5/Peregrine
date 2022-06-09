@@ -13,3 +13,4 @@
 - PortalContext
 
 CurrentMemoryContext、ErrorContext、PostmasterContext、CacheMemoryContext、MessageContext、TopTransactionContext、CurTransactionContext和PortalContext均作为TopMemoryContext的子上下文。它们之间以树的形式进行分布与管理，这几个内存上下文之间的关系如图所示：
+![内存上下文示意图](https://user-images.githubusercontent.com/63132178/172780970-ead483b7-b700-476f-9d01-e1a876a797f8.png)
