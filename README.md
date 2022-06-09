@@ -1,6 +1,6 @@
-# Peregrine
-Peregrine是一款由纯C语言编写的高性能Web服务器，它具有体积小、性能强、并发量高等许多特点。
-1. mincore()、sigwaitinfo()、sigtimedwait()、
-ERROR:  MultiXactId 1076887568 has not been created yet -- apparent wraparound
-ERROR:  MultiXactId 1076887568 has not been created yet -- apparent wraparound
-![2  初始化子进程中PID、启动时间等函数处理流程](https://user-images.githubusercontent.com/63132178/172777242-8bd56314-e273-47e7-9c10-f07ea9f7319f.png)
+# 1. 启动内存上下文子系统
+这必须在创建上下文或在上下文中分配内存之前调用。TopMemoryContext和ErrorContext在这里初始化；之后必须创建其他内存上下文。
+## 1.1 初始化内存上下文
+当使用pg_ctl或postmaster（postgres）启动PostgreSQL数据库服务时候，在main()函数中会先对名为TopMemoryContext、CurrentMemoryContext和ErrorContext的内存上下文全局变量进行初始化操作，由函数MemoryContextInit()负责完成。其中TopMemoryContext是所有其他内存上下文的父节点。在一XXX文中有提到过，当前PostgreSQL数据库中，有以下几个比较重要的全局变量内存上下文。分别是：
+- CurrentMemoryContext 	
+
